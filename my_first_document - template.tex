@@ -1,0 +1,160 @@
+\documentclass{article}
+% common math packages
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+% this is for figures
+\usepackage{graphicx}
+\usepackage{float}
+% this is for adjusting margins
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=21mm,
+	right=21mm,
+	top=33mm,
+	bottom=38mm
+}
+% this is for managing theorems, lemmas, etc
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+% % copy paste and type
+
+% this is for creating lists
+\usepackage{enumerate}
+
+% this is for links
+\usepackage{hyperref}
+% this is the title
+\title{Something}
+\date{}
+\author{Something}
+
+% this part is known as the TEXT
+\begin{document}
+	%\maketitle
+	\section{Introduction}
+		\subsection{Lines of Text}
+			Something This is a text. However,
+			entering
+			a 
+			new line
+			does not create a new line. 
+			This will create a new line: [Something]
+			This will also create a new line: [Something]
+			This creates a new line 5.75 millimetres below:	[Something]
+			This is a new paragraph: 
+			[Something]
+		\subsection{Text Formatting}
+			Some formatting techniques:\\[3mm]
+			Something{this is a bold-faced text}\\[3mm]
+			Something{this is an italicised text}\\[3mm]
+			Something{this is an underlined text}\\[3mm]
+			%Something Interesting %
+			%Something in the center%
+		\subsection{Some Special Characters}
+			Some special characters are:
+			\begin{center}
+				Somethings
+			\end{center}
+			Here are some ways of writing accents:			
+			\begin{center}
+				Somethings
+			\end{center}
+			[Something]This is a bad quote[Something]...\\[3mm]
+			\emph{Remark.} Never use [Something]\\[3mm]
+			[Something]This is a good quote[Something]\\
+			and [Something]This is also a good quote[Something]
+	% this is the coolest section by far
+	% And we want to give it a new page
+	\section{Mathematics}
+		In this section, we will discuss essential features of the mathematics environment.
+		\subsection{Basic Mathematics}
+			The most basic mathematical environment is this [Sth]x + y - z = 1[Sth].\\
+			Compare it with x + y - z = 1.\\
+			Here's a list of basic math features:
+			\begin{enumerate}
+				\item Greek Symbols: Something.
+				\item Common Symbols: Something.
+				\item More Common Symbols: Something.
+				\item Elementary Functions: Something, remember not to write [Something] etc.
+				\item Some more: Something.
+				\item Even more: \href{http://detexify.kirelabs.org/classify.html}{Detexify} %or \url{http://detexify.kirelabs.org/classify.html}
+			\end{enumerate}
+			Let's talk about fractions, subscripts and superscripts...
+			\begin{enumerate}
+				\item Fractions: Something
+				\item Subscripts: Something
+				\item Superscripts: Something
+				\item Combinations: Something as Something... 				\item Always remember, subscripts first followed by superscripts, e.g. Somethings
+			\end{enumerate}
+		\subsection{Mathematical Fonts}
+			Here are some useful fonts:
+			\begin{enumerate}
+				\item Default: Something
+				\item Other fonts:
+				\begin{enumerate}[(a)]
+					\item Blackboard Bold: Something
+					\item Bold-faced: Something
+					\item Caligraphy: Something
+					\item Fraktur: Something
+				\end{enumerate}
+			\end{enumerate}
+		\subsection{Equations}
+			% itemize: creates an unnumbered list.
+			\begin{itemize}
+				\item An example of an numbered equation is
+				% %
+				\item An example of an unnumbered equation is
+				% %
+				\item This is how we split equations:
+				% %
+			\end{itemize}
+		\subsection{Integrals, Limits, Summation}
+			\begin{itemize}
+				\item Integral: Something.
+				\item Limit: Something.
+				\item Summation: Something.
+				\item Partial Derivative: Something
+			\end{itemize}
+			
+		\subsection{Matrices, Vectors}
+			A Matrix:
+			% pmatrix %
+			% bmatrix %
+			A Vector:
+			% normal way %
+			% lazy way %
+			
+		% this is mainly for math majors...
+		\subsection{Theorems, Lemma, Definitions, Corollaries}
+			\begin{definition}\label{convergence}
+				Let [Something] be a real-valued sequence. A sequence is said to converge to a limit [Something] if for any given [Something], there exists [Something] such that [Something] implies [Something].
+			\end{definition}
+			Based on Definition[Something] we have the following lemma.
+			% %
+			We can prove this lemma by:
+			% %
+			% Remark %
+			\begin{theorem}[Central Limit Theorem]
+				Let [Something] be a sequence of i.i.d random variables, with finite mean [Something] and variance [Something]. Then
+				% %
+				can be approximated by the standard normal distribution.
+			\end{theorem}
+
+	\newpage
+	\section{Others}
+		\subsection{Tables}
+			% %
+		\subsection{Figures}
+			This is a figure:
+			\begin{figure}[H]
+			% %
+			\end{figure}
+
+
+	% basic bibliography
+	\begin{thebibliography}{100}
+		\bibitem{latex-course} Jiaming Song (2018), \emph{``A First Course in \LaTeX{}''}. NUS Mathematics Society.
+	\end{thebibliography}
+\end{document}
