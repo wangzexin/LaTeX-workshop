@@ -18,7 +18,9 @@
 % this is for managing theorems, lemmas, etc
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}[definition]{Theorem}
-% % copy paste and type
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
 
 % this is for creating lists
 \usepackage{enumerate}
@@ -128,33 +130,37 @@
 			
 		% this is mainly for math majors...
 		\subsection{Theorems, Lemma, Definitions, Corollaries}
-			\begin{definition}\label{convergence}
-				Let [Something] be a real-valued sequence. A sequence is said to converge to a limit [Something] if for any given [Something], there exists [Something] such that [Something] implies [Something].
-			\end{definition}
+			%definition
+				Let $(x_{n})_{n=1}^{\infty}$ be a real-valued sequence. A sequence is said to converge to a limit $x \in \mathbb{R}$ if for any given $\varepsilon$ ,there exists $N \in\mathbb{N}$ such that $n \geq N$ implies $\|x_{n}-x\|<\varepsilon$. 
+			
+			%refer to label
 			Based on Definition[Something] we have the following lemma.
-			% %
+			%lemma
+			If $x_{n} \to x$, then $|x_{n}| \to |x|$.
 			We can prove this lemma by:
-			% %
+			
+			%proof
+			
 			% Remark %
-			\begin{theorem}[Central Limit Theorem]
-				Let [Something] be a sequence of i.i.d random variables, with finite mean [Something] and variance [Something]. Then
-				% %
+			
+			%theorem
+			Let $X_{1}, X_{2}, X_{3}, \dots$ be a sequence of IID random variables, with finite mean $\mu$ and variance $\sigma^{2}$. Then
+				\begin{equation}
+					\frac{\bar{X}-\mu}{\sqrt{\sigma^{2}/n}}
+				\end{equation}
 				can be approximated by the standard normal distribution.
-			\end{theorem}
+
 
 	\newpage
 	\section{Others}
 		\subsection{Tables}
-			% %
+			
 		\subsection{Figures}
-			This is a figure:
-			\begin{figure}[H]
-			% %
-			\end{figure}
-
-
+			
+			
 	% basic bibliography
 	\begin{thebibliography}{100}
 		\bibitem{latex-course} Jiaming Song (2018), \emph{``A First Course in \LaTeX{}''}. NUS Mathematics Society.
 	\end{thebibliography}
+	
 \end{document}
