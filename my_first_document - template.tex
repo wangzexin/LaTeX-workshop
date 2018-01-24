@@ -1,20 +1,30 @@
-\documentclass{article}
+% percentage sign is a comment, everything after '%' will not be compiled or shown in the pdf
+% F1 is a shortcut key for compiling/quick building a pdf preview
+% Each time you compiled this file, the pdf generated is overwitten.
+
+\documentclass{article} %Indicating what type of documents you are writing. 'article' for a normal pdf, 'beamer' for ppt slides, 'exam' for an exam template
+
+% importing useful packages
+
 % common math packages
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+
 % this is for figures
 \usepackage{graphicx}
 \usepackage{float}
+
 % this is for adjusting margins
 \usepackage{geometry}
 \geometry{
 	a4paper,
 	left=21mm,
 	right=21mm,
-	top=33mm,
-	bottom=38mm
+	top=21mm,
+	bottom=21mm
 }
+
 % this is for managing theorems, lemmas, etc
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}[definition]{Theorem}
@@ -27,140 +37,224 @@
 
 % this is for links
 \usepackage{hyperref}
+
 % this is the title
-\title{Something}
-\date{}
-\author{Something}
+\title{Latex Workshop}
+\date{Jan 24,2018} 
+
+% if you want the compiler to auto generate today's date, you don't need this line
+% if you do not want the date, just use: \date{}
+\author{Jiaming}
+
+
+% all the parts above are called preamble, the preamble is mainly for you to import packages, define new environment or packages, and those will not appear in the pdf generated.
+
+% you don't have to memorize all these packages, can just copy over whenever you want to write a new file. For more packages: just google
 
 % this part is known as the TEXT
+% everything to be shown in the pdf, must be written within the \begin{documment} EVERYTHING \end{document}
+% note that whenever there is a '\begin{sth}', there has to be a '\end{sth}'. 
 \begin{document}
-	%\maketitle
+	\maketitle % this command will display whatever you defined for the titles in the preamble section. \title{}, \date{}, \author{•}
+	\tableofcontents % display the table of contents, must push other stuff to the next page for it to be displayed
+	\newpage % contents after this will be displayed in a new page
 	\section{Introduction}
 		\subsection{Lines of Text}
-			Something This is a text. However,
+		% \hspace{4mm} creates a horizontal space of 4mm
+			\hspace{4mm} Something This is a text. However,
 			entering
 			a 
 			new line
 			does not create a new line. 
-			This will create a new line: [Something]
-			This will also create a new line: [Something]
-			This creates a new line 5.75 millimetres below:	[Something]
+			This will create a new line: \\
+			This will also create a new line: \newline
+			This creates a new line 5.75 millimetres below:	\\[5.75mm]
 			This is a new paragraph: 
-			[Something]
+			\par This is a new paragraph. This is a new paragraph. This is a new paragraph. This is a new paragraph. This is a new paragraph. This is a new paragraph
 		\subsection{Text Formatting}
 			Some formatting techniques:\\[3mm]
-			Something{this is a bold-faced text}\\[3mm]
-			Something{this is an italicised text}\\[3mm]
-			Something{this is an underlined text}\\[3mm]
+			\textbf{this is a bold-faced text}\\[3mm]
+			\emph{this is an italicised text}\\[3mm]
+			\underline{this is an underlined text}\\[3mm]
 			%Something Interesting %
+			\textbf{\emph{\underline{interesting}}}
 			%Something in the center%
+			\begin{center}
+				This is centralised
+			\end{center}
+			% don't use '\center{}' !!
 		\subsection{Some Special Characters}
 			Some special characters are:
+			% These special characters have special usage in Latex, i.e '%' indicates a comment, '$' indicates a math environment, thus if we want to type them as plaintext, we have to put a '\' in front of them.
 			\begin{center}
-				Somethings
+				\%, \$, \&, \{, \}
 			\end{center}
+			More special characters:
+			\begin{center}
+			$\backslash$, \^{} % backslash itself and ^
+			\end{center}
+			 
 			Here are some ways of writing accents:			
 			\begin{center}
-				Somethings
+				L'H\^{o}pital, March\'{e}, H\"{o}lder's Inequality
 			\end{center}
-			[Something]This is a bad quote[Something]...\\[3mm]
-			\emph{Remark.} Never use [Something]\\[3mm]
-			[Something]This is a good quote[Something]\\
-			and [Something]This is also a good quote[Something]
-	% this is the coolest section by far
-	% And we want to give it a new page
+			"This is a bad quote"...\\[3mm]
+			\emph{Remark.} Never use "\\[3mm]
+			`This is a good quote'\\ % ` is located to the left 1, and under '~'
+			and ``This is also a good quote''
+	
+	\newpage
 	\section{Mathematics}
 		In this section, we will discuss essential features of the mathematics environment.
 		\subsection{Basic Mathematics}
-			The most basic mathematical environment is this [Sth]x + y - z = 1[Sth].\\
-			Compare it with x + y - z = 1.\\
+			The most basic mathematical environment is this $x + y - z = 1$.Compare it with x + y - z = 1.\\
+			`\$ blah blah \$' gives inline math environment. i.e. the math formula is displayed in the same line as other words. However, using double `\$\$ blah blah \$\$' will display the formula in a line itself. For example:\\
+			What is the different between $ 1+1=2$ and $$1+1=2$$ equation?\\
+			
 			Here's a list of basic math features:
+			% \begin{enumerate} ... \end{enumerate} creates a numbered list environment. Inside the environment, put '\item' in front of each point.
 			\begin{enumerate}
-				\item Greek Symbols: Something.
-				\item Common Symbols: Something.
-				\item More Common Symbols: Something.
-				\item Elementary Functions: Something, remember not to write [Something] etc.
-				\item Some more: Something.
-				\item Even more: \href{http://detexify.kirelabs.org/classify.html}{Detexify} %or \url{http://detexify.kirelabs.org/classify.html}
+				\item Greek Symbols: $\alpha,\beta,\sigma,\pi,\epsilon,\varepsilon, \Sigma,\Pi$ etc.
+				\item Common Symbols: $\{1,2,3\} \subseteq \{1,2,3,4\}, 1 \in \{1,2\},\forall, \exists, \leq, \geq$.
+				\item More Common Symbols: $\infty \not \in \{1,2\}$.
+				\item Elementary Functions: $\cos(x),\sin(x),\exp(x),\min, \max, \ln(x),\log(x)$, remember not to write $sin(x)$ etc.
+				\item Some more: $f:A\to B, B \implies C, C \equiv D, D\Leftrightarrow E, E \circ F$.
+				\item Even more: Use this website to find the name of the symbol!: \href{http://detexify.kirelabs.org/classify.html}{Detexify}  % only word 'Detexify' will be displayed, but it links to the url on click
+				% another way to attach just the link: \url{http://detexify.kirelabs.org/classify.html}
 			\end{enumerate}
 			Let's talk about fractions, subscripts and superscripts...
 			\begin{enumerate}
-				\item Fractions: Something
-				\item Subscripts: Something
-				\item Superscripts: Something
-				\item Combinations: Something as Something... 				\item Always remember, subscripts first followed by superscripts, e.g. Somethings
+				\item Fractions: $\frac{1}{2}, \frac{1}{1+\frac{1}{n}}$
+				\item Subscripts: $x_{1},x_{2},\dots,x_{2018}$
+				\item Superscripts: $x^{1},x^{2},\dots,x^{2018}$
+				\item Combinations: $(1+\frac{1}{n})^{n} \to e$ as $n \to \infty$... 				
+				\item Always remember, subscripts first followed by superscripts, e.g. $\alpha_{x}^{\epsilon}, x_{1_{2}}^{3^{4}}$
 			\end{enumerate}
 		\subsection{Mathematical Fonts}
 			Here are some useful fonts:
 			\begin{enumerate}
-				\item Default: Something
+				\item Default: $a,b,A,B$
 				\item Other fonts:
-				\begin{enumerate}[(a)]
-					\item Blackboard Bold: Something
-					\item Bold-faced: Something
-					\item Caligraphy: Something
-					\item Fraktur: Something
+				\begin{enumerate}[(a)] % to number the points using a,b,c,d instead of just 1,2,3,4
+				% can also use \begin{enumerate}[(i)] to number the points using i, ii, iii
+					\item Blackboard Bold: $\mathbb{Q}\subset\mathbb{R}$
+					\item Bold-faced: $\mathbf{P}(X=k)=0.4$
+					\item Caligraphy: $A \in \mathcal{A}\cup\mathcal{B}$ 
+					\item Fraktur: $\mathfrak{ABCDEFG}$
 				\end{enumerate}
 			\end{enumerate}
 		\subsection{Equations}
 			% itemize: creates an unnumbered list.
 			\begin{itemize}
 				\item An example of an numbered equation is
-				% %
+				\begin{equation}
+				 e^{i \pi}+1 =0
+				\end{equation}
+				% note that the area between \begin{equation} and \end{equation} is math environment, you do not have to use $ inside.
 				\item An example of an unnumbered equation is
-				% %
+				\begin{equation*}
+				e^{i \pi}+2 \not=0
+				\end{equation*}
 				\item This is how we split equations:
-				% %
+				\begin{equation}
+					\begin{split}
+					(1+2)+3 &=6\\
+							&= 3+ 3\\
+							&= 6.0
+					\end{split}
+				\end{equation}
 			\end{itemize}
 		\subsection{Integrals, Limits, Summation}
 			\begin{itemize}
-				\item Integral: Something.
-				\item Limit: Something.
-				\item Summation: Something.
-				\item Partial Derivative: Something
+				\item Integral: $\int_{0}^{1} f(x) \, dx$. \emph{Note}: `$\backslash$,' creates an extra space between items in math environment. By default, space is not create by just typing ` '. i.e. Compare $A B$, $AB$ and $A \, B$
+				\item Limit: $\lim_{n\to\infty}(1+\frac{1}{n})^{n} = e$.
+				\item Summation: $\sum\limits_{n=0}^{\infty} \frac{1}{n!} = e$.
+				\item Partial Derivative: $\frac{\partial f}{\partial x}$
 			\end{itemize}
 			
 		\subsection{Matrices, Vectors}
 			A Matrix:
-			% pmatrix %
-			% bmatrix %
+			% pmatrix % (round brackets)
+			\begin{equation}
+			% matrix must be placed inside a math environment, except 'equation', you can also place it inside $..$ or $$..$$
+			\begin{pmatrix}
+			1 & 2 & 3\\
+			4 & 5 & 6\\
+			7 & 8 & 9
+			\end{pmatrix}
+			\end{equation}
+			% bmatrix % (square brackets)
+			$$\begin{bmatrix}
+			 1 & \dots & \cdots\\
+			4 & \ddots & \vdots\\
+			7 & 8 & 9
+			\end{bmatrix}$$
 			A Vector:
 			% normal way %
+			\begin{equation}
+			\vec{v} =
+			\begin{bmatrix}
+			x_{1}\\
+			x_{2}\\
+			x_{3}
+			\end{bmatrix}
+			\end{equation}
 			% lazy way %
+			$\vec{v} = [1,2,3]^{T}$
 			
 		% this is mainly for math majors...
 		\subsection{Theorems, Lemma, Definitions, Corollaries}
-			%definition
+			\begin{definition}\label{convergence} % label is used to be refered later
 				Let $(x_{n})_{n=1}^{\infty}$ be a real-valued sequence. A sequence is said to converge to a limit $x \in \mathbb{R}$ if for any given $\varepsilon$ ,there exists $N \in\mathbb{N}$ such that $n \geq N$ implies $\|x_{n}-x\|<\varepsilon$. 
-			
-			%refer to label
-			Based on Definition[Something] we have the following lemma.
-			%lemma
+			\end{definition}
+			Based on Definition~\ref{convergence} we have the following lemma. % auto refered to convergence label
+			\begin{lemma}\label{simple lemma}
 			If $x_{n} \to x$, then $|x_{n}| \to |x|$.
+			\end{lemma}
 			We can prove this lemma by:
-			
-			%proof
-			
+			\begin{proof}
+			Left as an exercise.
+			\end{proof}
 			% Remark %
-			
+			\begin{remark}
+			The converse of Lemma~\ref{simple lemma} is not true in general
+			\end{remark}
 			%theorem
+			\begin{theorem}
 			Let $X_{1}, X_{2}, X_{3}, \dots$ be a sequence of IID random variables, with finite mean $\mu$ and variance $\sigma^{2}$. Then
 				\begin{equation}
-					\frac{\bar{X}-\mu}{\sqrt{\sigma^{2}/n}}
+					\frac{\bar{X}-\mu}{\sqrt{\sigma^{2}/n}} 
 				\end{equation}
 				can be approximated by the standard normal distribution.
-
+			\end{theorem}
 
 	\newpage
 	\section{Others}
 		\subsection{Tables}
-			
+		Refer to \cite{latex-course} % Refer to the reference (at the end) item with label ‘latex-course’
+		\begin{center} % can remove the center environment if you dont want to put the table in the center
+			\begin{tabular}{|c|c|c|} % {|c|c|c|} how many c indicates how many columns. Here we create a table of 3 columns
+			\hline  %draw a horizontal line
+			Name & Age & Favoured Fruit\\
+			\hline
+			Jiaming & 15 & Apple\\
+			Joel & 2 & Whatever\\
+			\hline
+			\end{tabular}
+		\end{center}
 		\subsection{Figures}
+		\begin{figure}[H] % [H] means to place the picture here, if without [H], the picture will be displayed at the top of the page
+		\centering 
+			\includegraphics[width = 0.5\textwidth]{what.jpg} % include an image, with image width = half of the width of text. what.jpg if the name of the image you want to include. 
+			\caption{what???}
+		\end{figure}
 			
 			
-	% basic bibliography
-	\begin{thebibliography}{100}
+	% basic bibliography /reference
+	\begin{thebibliography}{100} % {100} means at most you have 100 item, \bibitem works the same way as the \item in enumerate or itemize
 		\bibitem{latex-course} Jiaming Song (2018), \emph{``A First Course in \LaTeX{}''}. NUS Mathematics Society.
+		% latex-course is the label, so you can refer to this reference in other part of your report. See the line under 'Table' section.
+		\bibitem{useful links} Sharelatex, \url{https://www.sharelatex.com/learn/}
 	\end{thebibliography}
 	
 \end{document}
